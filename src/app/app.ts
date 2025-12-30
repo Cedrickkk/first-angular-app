@@ -11,4 +11,12 @@ import { USERS_MOCK } from '@/shared/data/user.mock';
 })
 export class App {
   public users = USERS_MOCK;
+
+  /**
+   * App.ts parent component
+   * @param id
+   */
+  public onSelectUser(id: string) {
+    console.log('Selected user with id: ' + id);
+  }
 }

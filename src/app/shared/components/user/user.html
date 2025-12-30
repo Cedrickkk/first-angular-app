@@ -1,4 +1,11 @@
-<button z-button zType="outline" zSize="lg" zFull class="p-6">
+<button
+  z-button
+  zType="outline"
+  zSize="lg"
+  zFull
+  class="p-6"
+  (click)="onSelectUser()"
+>
   <div class="flex items-center gap-2">
     <z-avatar [zSrc]="imagePath()" [zAlt]="name()" zSize="sm" />
     <p class="text-sm">{{ name() }}</p>
