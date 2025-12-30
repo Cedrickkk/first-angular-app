@@ -1,17 +1,6 @@
-<button
-  z-button
-  zType="outline"
-  zSize="lg"
-  zFull
-  (click)="onSelectUser()"
-  class="p-6"
->
+<button z-button zType="outline" zSize="lg" zFull class="p-6">
   <div class="flex items-center gap-2">
-    <z-avatar
-      [zSrc]="imagePathComputed()"
-      [zFallback]="randomUserSignal().name"
-      zSize="sm"
-    />
-    <p class="text-sm">{{ randomUserSignal().name }}</p>
+    <z-avatar [zSrc]="imagePath" [zAlt]="name" zSize="sm" />
+    <p class="text-sm">{{ name }}</p>
   </div>
 </button>

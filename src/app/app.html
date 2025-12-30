@@ -3,8 +3,20 @@
   <div
     class="grid h-screen flex-1 grid-cols-2 place-items-center justify-center"
   >
-    <app-user />
-    <p>test</p>
+    <ul class="space-y-3">
+      <li>
+        <app-user [avatar]="users[0].image" [name]="users[0].name" />
+      </li>
+      <li>
+        <app-user [avatar]="users[1].image" [name]="users[1].name" />
+      </li>
+      <li>
+        <app-user [avatar]="users[2].image" [name]="users[2].name" />
+      </li>
+    </ul>
+    <div class="justify-self-start">
+      <h2>Test</h2>
+    </div>
   </div>
 </main>
 
