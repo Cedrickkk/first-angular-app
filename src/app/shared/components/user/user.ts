@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { ZardAvatarComponent } from '@/shared/components/avatar/avatar.component';
 import { USERS_MOCK } from '@/shared/data/user.mock';
 import { ZardButtonComponent } from '@/shared/components/button/button.component';
@@ -9,17 +9,30 @@ import { ZardButtonComponent } from '@/shared/components/button/button.component
   templateUrl: './user.html',
 })
 export class User {
-  public randomUser = USERS_MOCK[Math.floor(Math.random() * USERS_MOCK.length)];
+  public randomUserTraditional =
+    USERS_MOCK[Math.floor(Math.random() * USERS_MOCK.length)];
+
+  public randomUserSignal = signal(
+    USERS_MOCK[Math.floor(Math.random() * USERS_MOCK.length)],
+  );
 
   /**
-   * Using getters for computed values
-   *
+   * Using getters for computed values before Signals
    */
-  public get imagePath() {
-    return '/images/' + this.randomUser.image;
+  public get imagePathGetter() {
+    return '/images/' + this.randomUserTraditional.image;
   }
 
+  /**
+   * Using computed for computed values after Signals
+   */
+  public imagePathComputed = computed(
+    () => '/images/' + this.randomUserSignal().image,
+  );
+
   public onSelectUser() {
-    this.randomUser = USERS_MOCK[Math.floor(Math.random() * USERS_MOCK.length)];
+    this.randomUserSignal.set(
+      USERS_MOCK[Math.floor(Math.random() * USERS_MOCK.length)],
+    );
   }
 }
