@@ -1,8 +1,13 @@
-<div class="flex items-center gap-2">
-  <z-avatar
-    [zSrc]="randomUser.image"
-    [zFallback]="randomUser.name"
-    zSize="sm"
-  />
-  <p class="text-sm">{{ randomUser.name }}</p>
-</div>
+<button
+  z-button
+  zType="outline"
+  zSize="lg"
+  zFull
+  (click)="onSelectUser()"
+  class="p-6"
+>
+  <div class="flex items-center gap-2">
+    <z-avatar [zSrc]="imagePath" [zFallback]="randomUser.name" zSize="sm" />
+    <p class="text-sm">{{ randomUser.name }}</p>
+  </div>
+</button>
