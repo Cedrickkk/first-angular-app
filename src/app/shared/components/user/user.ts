@@ -1,10 +1,4 @@
-import {
-  Component,
-  computed,
-  EventEmitter,
-  input,
-  Output,
-} from '@angular/core';
+import { Component, computed, input, output } from '@angular/core';
 import { ZardAvatarComponent } from '@/shared/components/avatar/avatar.component';
 import { ZardButtonComponent } from '@/shared/components/button/button.component';
 
@@ -18,9 +12,9 @@ export class User {
   public avatar = input.required<string>();
   public name = input.required<string>();
   public imagePath = computed(() => '/images/' + this.avatar());
-  @Output() public select = new EventEmitter();
+  public select = output<string>();
 
   public onSelectUser() {
-    this.select.emit(this.id);
+    this.select.emit(this.id());
   }
 }
