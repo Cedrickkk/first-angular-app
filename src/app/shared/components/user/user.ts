@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { ZardAvatarComponent } from '@/shared/components/avatar/avatar.component';
 import { ZardButtonComponent } from '@/shared/components/button/button.component';
 
@@ -8,10 +8,8 @@ import { ZardButtonComponent } from '@/shared/components/button/button.component
   templateUrl: './user.html',
 })
 export class User {
-  @Input({ required: true }) public avatar!: string;
-  @Input({ required: true }) public name!: string;
+  public avatar = input.required<string>();
+  public name = input.required<string>();
 
-  public get imagePath() {
-    return '/images/' + this.avatar;
-  }
+  public imagePath = computed(() => '/images/' + this.avatar());
 }
