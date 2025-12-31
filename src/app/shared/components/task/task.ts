@@ -6,5 +6,5 @@ import { Component, input } from '@angular/core';
   templateUrl: './task.html',
 })
 export class Task {
-  public name = input.required<string>();
+  public name = input<string>();
 }
