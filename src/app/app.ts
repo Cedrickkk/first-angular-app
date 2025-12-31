@@ -1,22 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from '@/shared/components/header/header';
 import { User } from '@/shared/components/user/user';
 import { USERS_MOCK } from '@/shared/data/user.mock';
+import { Task } from '@/shared/components/task/task';
+import { type User as TUser } from '@/shared/models/user';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, User],
+  imports: [RouterOutlet, Header, User, Task],
   templateUrl: './app.html',
 })
 export class App {
   public users = USERS_MOCK;
+  public selectedUser = signal<TUser | undefined>(this.users[0]);
 
-  /**
-   * App.ts parent component
-   * @param id
-   */
   public onSelectUser(id: string) {
-    console.log('Selected user with id: ' + id);
+    const user = this.users.find((user) => user.id == id);
+    this.selectedUser.set(user);
   }
 }
