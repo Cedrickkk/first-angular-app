@@ -7,7 +7,7 @@
   (click)="onSelectUser()"
 >
   <div class="flex items-center gap-2">
-    <z-avatar [zSrc]="imagePath()" [zAlt]="name()" zSize="sm" />
-    <p class="text-sm">{{ name() }}</p>
+    <z-avatar [zSrc]="imagePath()" [zAlt]="this.user().name" zSize="sm" />
+    <p class="text-sm">{{ this.user().name }}</p>
   </div>
 </button>
