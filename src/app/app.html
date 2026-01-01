@@ -1,7 +1,7 @@
 <main class="flex min-h-screen flex-col">
   <app-header />
   <div
-    class="grid h-screen flex-1 grid-cols-2 place-items-center justify-center"
+    class="container mx-auto grid h-screen max-w-5xl flex-1 grid-cols-2 place-items-start items-center p-6"
   >
     <ul class="space-y-3">
       @for (user of this.users; track user.id) {
@@ -10,8 +10,14 @@
       </li>
       }
     </ul>
-    <div class="justify-self-start">
-      <app-task [name]="selectedUser()?.name" />
+
+    <div class="w-full justify-self-start">
+      @if (selectedUser()) {
+      <app-tasks
+        [name]="selectedUser()?.name"
+        [tasks]="selectedUser()?.tasks"
+      />
+      }
     </div>
   </div>
 </main>

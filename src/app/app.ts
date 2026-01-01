@@ -3,12 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { Header } from '@/shared/components/header/header';
 import { User } from '@/shared/components/user/user';
 import { USERS_MOCK } from '@/shared/data/user.mock';
-import { Task } from '@/shared/components/task/task';
+import { Tasks } from '@/shared/components/tasks/tasks';
 import { type User as TUser } from '@/shared/models/user';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, User, Task],
+  imports: [RouterOutlet, Header, User, Tasks],
   templateUrl: './app.html',
 })
 export class App {
