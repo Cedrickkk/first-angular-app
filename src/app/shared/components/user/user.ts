@@ -10,6 +10,7 @@ import { type User as TUser } from '@/shared/models/user';
 })
 export class User {
   public user = input.required<TUser>();
+  public selected = input.required<boolean>();
   public imagePath = computed(() => '/images/' + this.user()?.image);
   public select = output<string>();
 

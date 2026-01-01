@@ -4,6 +4,9 @@
   zSize="lg"
   zFull
   class="p-6"
+  [class.bg-primary]="selected()"
+  [class.text-white]="selected()"
+  [class.border-primary]="selected()"
   (click)="onSelectUser()"
 >
   <div class="flex items-center gap-2">
