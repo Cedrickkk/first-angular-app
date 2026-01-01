@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { ZardButtonComponent } from '@/shared/components/button/button.component';
 import { Task } from '@/shared/components/tasks/task/task';
 import { Task as ITask } from '@/shared/models/task';
@@ -11,4 +11,9 @@ import { Task as ITask } from '@/shared/models/task';
 export class Tasks {
   public name = input<string>();
   public tasks = input<ITask[]>();
+  public taskCompleted = output<string>();
+
+  public onCompleteTask(id: string) {
+    this.taskCompleted.emit(id);
+  }
 }

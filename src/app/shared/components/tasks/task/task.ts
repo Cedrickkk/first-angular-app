@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { ZardButtonComponent } from '@/shared/components/button/button.component';
 import { Task as ITask } from '@/shared/models/task';
 
@@ -8,5 +8,10 @@ import { Task as ITask } from '@/shared/models/task';
   templateUrl: './task.html',
 })
 export class Task {
-  public task = input<ITask>();
+  public task = input.required<ITask>();
+  public complete = output<string>();
+
+  public onCompleteTask() {
+    this.complete.emit(this.task().id);
+  }
 }

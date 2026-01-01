@@ -20,6 +20,7 @@
       <app-tasks
         [name]="selectedUser()?.name"
         [tasks]="selectedUser()?.tasks"
+        (taskCompleted)="onTaskCompleted($event)"
       />
       }
     </div>

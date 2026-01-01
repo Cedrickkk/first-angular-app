@@ -1,16 +1,18 @@
 <article class="bg-muted rounded-sm p-4">
   <div class="mb-3">
-    <h2 class="text-sm font-semibold uppercase">{{ task()?.title }}</h2>
+    <h2 class="text-sm font-semibold uppercase">{{ task().title }}</h2>
     <time class="text-muted-foreground text-xs lowercase"
-      >{{ task()?.dueDate }}</time
-    >
+      >{{ task().dueDate }}
+    </time>
   </div>
   <div class="my-4">
     <p class="text-muted-foreground text-sm leading-relaxed">
-      {{ task()?.summary }}
+      {{ task().summary }}
     </p>
   </div>
   <div class="flex justify-self-end">
-    <z-button zType="outline">Complete</z-button>
+    <button z-button zType="outline" (click)="onCompleteTask()">
+      Complete
+    </button>
   </div>
 </article>

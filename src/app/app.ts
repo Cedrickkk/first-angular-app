@@ -19,4 +19,11 @@ export class App {
     const user = this.users.find((user) => user.id == id);
     this.selectedUser.set(user);
   }
+
+  public onTaskCompleted(taskId: string) {
+    const user = this.selectedUser();
+    if (user) {
+      user.tasks = user.tasks.filter((task) => task.id !== taskId);
+    }
+  }
 }
