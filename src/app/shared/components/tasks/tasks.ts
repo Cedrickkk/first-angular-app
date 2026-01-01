@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { ZardButtonComponent } from '@/shared/components/button/button.component';
 import { Task } from '@/shared/components/tasks/task/task';
-import { type Task as TTask } from '@/shared/models/user';
+import { Task as ITask } from '@/shared/models/task';
 
 @Component({
   selector: 'app-tasks',
@@ -10,5 +10,5 @@ import { type Task as TTask } from '@/shared/models/user';
 })
 export class Tasks {
   public name = input<string>();
-  public tasks = input<TTask[]>();
+  public tasks = input<ITask[]>();
 }
