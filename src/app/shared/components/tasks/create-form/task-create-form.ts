@@ -7,10 +7,11 @@ import {
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ZardInputDirective } from '@/shared/components/input/input.directive';
 import { Z_MODAL_DATA } from '@/shared/components/dialog/dialog.service';
+import { ZardDatePickerComponent } from '@/shared/components/date-picker/date-picker.component';
 
 @Component({
   selector: 'app-task-create-form',
-  imports: [ReactiveFormsModule, ZardInputDirective],
+  imports: [ReactiveFormsModule, ZardInputDirective, ZardDatePickerComponent],
   templateUrl: './task-create-form.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

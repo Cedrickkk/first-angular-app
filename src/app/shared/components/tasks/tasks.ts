@@ -37,7 +37,7 @@ export class Tasks {
         const newTask = instance.form.value as iTask;
         this.addTask.emit(newTask);
       },
-      zWidth: '425px',
+      zCustomClasses: 'max-w-xl!',
     });
   }
 }
