@@ -2,7 +2,7 @@
   <header class="mb-4 flex items-center justify-between">
     <h2 class="text-base font-medium">{{ name() }}'s Tasks</h2>
     <menu>
-      <z-button>Add Tasks</z-button>
+      <button z-button (click)="onOpenDialog()">Add Task</button>
     </menu>
   </header>
   <ul class="max-h-96 space-y-3 overflow-y-scroll">

@@ -1,4 +1,4 @@
-export interface Task {
+export interface iTask {
   id: string;
   title: string;
   summary: string;

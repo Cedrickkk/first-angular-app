@@ -1,7 +1,7 @@
 import { Component, computed, input, output } from '@angular/core';
 import { ZardAvatarComponent } from '@/shared/components/avatar/avatar.component';
 import { ZardButtonComponent } from '@/shared/components/button/button.component';
-import { type User as TUser } from '@/shared/models/user';
+import { type iUser as TUser } from '@/shared/models/iUser';
 
 @Component({
   selector: 'app-user',

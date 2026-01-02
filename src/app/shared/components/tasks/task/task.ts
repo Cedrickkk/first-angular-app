@@ -1,6 +1,6 @@
 import { Component, input, output } from '@angular/core';
 import { ZardButtonComponent } from '@/shared/components/button/button.component';
-import { Task as ITask } from '@/shared/models/task';
+import { iTask as ITask } from '@/shared/models/iTask';
 
 @Component({
   selector: 'app-task',

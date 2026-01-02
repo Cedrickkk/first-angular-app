@@ -1,6 +1,6 @@
-import { User } from '@/shared/models/user';
+import { iUser } from '@/shared/models/iUser';
 
-export const USERS_MOCK: User[] = [
+export const USERS_MOCK: iUser[] = [
   {
     id: '1',
     name: 'Muichiro Tokito',

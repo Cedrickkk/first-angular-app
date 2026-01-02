@@ -21,6 +21,7 @@
         [name]="selectedUser()?.name"
         [tasks]="selectedUser()?.tasks"
         (taskCompleted)="onTaskCompleted($event)"
+        (addTask)="onAddTask($event)"
       />
       }
     </div>
