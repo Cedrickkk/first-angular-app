@@ -8,6 +8,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ZardInputDirective } from '@/shared/components/input/input.directive';
 import { Z_MODAL_DATA } from '@/shared/components/dialog/dialog.service';
 import { ZardDatePickerComponent } from '@/shared/components/date-picker/date-picker.component';
+import { iTask } from '@/shared/models/iTask';
 
 @Component({
   selector: 'app-task-create-form',
@@ -16,7 +17,7 @@ import { ZardDatePickerComponent } from '@/shared/components/date-picker/date-pi
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskCreateForm implements AfterViewInit {
-  private zData = inject(Z_MODAL_DATA);
+  private zData: iTask = inject(Z_MODAL_DATA);
 
   public form = new FormGroup({
     id: new FormControl(),

@@ -14,8 +14,8 @@ export class Tasks {
   public name = input<string>();
   public tasks = input<iTask[]>();
   public taskCompleted = output<string>();
-  private dialogService = inject(ZardDialogService);
   public addTask = output<iTask>();
+  private dialogService = inject(ZardDialogService);
 
   public onCompleteTask(id: string) {
     this.taskCompleted.emit(id);
@@ -31,7 +31,7 @@ export class Tasks {
         title: '',
         dueDate: '',
         summary: '',
-      },
+      } as iTask,
       zOkText: 'Create',
       zOnOk: (instance) => {
         const newTask = instance.form.value as iTask;
