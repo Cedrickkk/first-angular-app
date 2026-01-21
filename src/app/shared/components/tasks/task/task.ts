@@ -1,10 +1,11 @@
 import { Component, input, output } from '@angular/core';
 import { ZardButtonComponent } from '@/shared/components/button/button.component';
 import { iTask as ITask } from '@/shared/models/iTask';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-task',
-  imports: [ZardButtonComponent],
+  imports: [ZardButtonComponent, DatePipe],
   templateUrl: './task.html',
 })
 export class Task {

@@ -1,8 +1,8 @@
 <article class="bg-muted rounded-sm p-4">
   <div class="mb-3">
     <h2 class="text-sm font-semibold uppercase">{{ task().title }}</h2>
-    <time class="text-muted-foreground text-xs lowercase"
-      >{{ task().dueDate }}
+    <time class="text-muted-foreground text-xs"
+      >{{ task().dueDate | date:'fullDate' }}
     </time>
   </div>
   <div class="my-4">
