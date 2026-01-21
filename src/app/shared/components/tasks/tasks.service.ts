@@ -8,7 +8,7 @@ import { iTask } from '@/shared/models/iTask';
 export class TasksService {
   private userService = inject(UserService);
 
-  addTask(userId: string, task: iTask) {
+  public addTask(userId: string, task: iTask) {
     const _user = this.userService.users().find((u) => u.id === userId);
     if (_user) {
       const updatedTasks = [..._user.tasks, task];
@@ -16,7 +16,7 @@ export class TasksService {
     }
   }
 
-  removeTask(userId: string, taskId: string) {
+  public removeTask(userId: string, taskId: string) {
     const _user = this.userService.users().find((u) => u.id === userId);
     if (_user) {
       const updatedTasks = _user.tasks.filter((t) => t.id !== taskId);

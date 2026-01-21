@@ -15,11 +15,11 @@ export class UserService {
     this.users().find((u) => u.id === this.selectedUserId()),
   );
 
-  selectUser(id: string | null) {
+  public selectUser(id: string | null) {
     this.selectedUserId.set(id);
   }
 
-  updateUserTasks(user: iUser | null, newTasks: iTask[]) {
+  public updateUserTasks(user: iUser | null, newTasks: iTask[]) {
     this.usersSignal.update((users) => {
       return users.map((u) =>
         u.id === user?.id ? { ...u, tasks: newTasks } : u,
