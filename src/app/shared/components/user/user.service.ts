@@ -1,4 +1,4 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { computed, effect, Injectable, signal } from '@angular/core';
 import { iUser } from '@/shared/models/iUser';
 import { USERS_MOCK } from '@/shared/data/user.mock';
 import { iTask } from '@/shared/models/iTask';
@@ -14,6 +14,14 @@ export class UserService {
   public selectedUser = computed(() =>
     this.users().find((u) => u.id === this.selectedUserId()),
   );
+
+  constructor() {
+    const users = localStorage.getItem('users');
+
+    effect(() => {
+      localStorage.setItem('users', JSON.stringify(this.users()));
+    });
+  }
 
   public selectUser(id: string | null) {
     this.selectedUserId.set(id);
