@@ -20,7 +20,6 @@ export class TaskCreateForm implements AfterViewInit {
   private zData: iTask = inject(Z_MODAL_DATA);
 
   public form = new FormGroup({
-    id: new FormControl(),
     title: new FormControl(),
     summary: new FormControl(),
     dueDate: new FormControl(),

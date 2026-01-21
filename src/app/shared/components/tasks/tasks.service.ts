@@ -8,10 +8,15 @@ import { iTask } from '@/shared/models/iTask';
 export class TasksService {
   private userService = inject(UserService);
 
-  public addTask(userId: string, task: iTask) {
+  public addTask(userId: string, task: Omit<iTask, 'id'>) {
+    const newTask: iTask = {
+      ...task,
+      id: crypto.randomUUID(),
+    };
+
     const _user = this.userService.users().find((u) => u.id === userId);
     if (_user) {
-      const updatedTasks = [..._user.tasks, task];
+      const updatedTasks = [..._user.tasks, newTask];
       this.userService.updateUserTasks(_user, updatedTasks);
     }
   }
