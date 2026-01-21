@@ -1,9 +1,10 @@
-import { Component, inject, input, output } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { ZardButtonComponent } from '@/shared/components/button/button.component';
 import { Task } from '@/shared/components/tasks/task/task';
 import { iTask } from '@/shared/models/iTask';
 import { ZardDialogService } from '@/shared/components/dialog/dialog.service';
 import { TaskCreateForm } from '@/shared/components/tasks/create-form/task-create-form';
+import { TasksService } from '@/shared/components/tasks/tasks.service';
 
 @Component({
   selector: 'app-tasks',
@@ -11,14 +12,16 @@ import { TaskCreateForm } from '@/shared/components/tasks/create-form/task-creat
   templateUrl: './tasks.html',
 })
 export class Tasks {
-  public name = input<string>();
-  public tasks = input<iTask[]>();
-  public taskCompleted = output<string>();
-  public addTask = output<iTask>();
+  private taskService = inject(TasksService);
   private dialogService = inject(ZardDialogService);
 
+  public userId = input<string>();
+  public username = input<string>();
+  public tasks = input<iTask[]>();
+
   public onCompleteTask(id: string) {
-    this.taskCompleted.emit(id);
+    const uid = this.userId?.() ?? '';
+    this.taskService.removeTask(uid, id);
   }
 
   public onOpenDialog() {
@@ -35,7 +38,8 @@ export class Tasks {
       zOkText: 'Create',
       zOnOk: (instance) => {
         const newTask = instance.form.value as iTask;
-        this.addTask.emit(newTask);
+        const uid = this.userId?.() ?? '';
+        this.taskService.addTask(uid, newTask);
       },
       zCustomClasses: 'max-w-xl!',
     });

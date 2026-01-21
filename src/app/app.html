@@ -4,7 +4,7 @@
     class="container mx-auto grid h-screen max-w-5xl flex-1 grid-cols-2 place-items-start items-center p-6"
   >
     <ul class="space-y-3">
-      @for (user of this.users; track user.id) {
+      @for (user of this.users(); track user.id) {
       <li>
         <app-user
           [user]="user"
@@ -18,10 +18,9 @@
     <div class="w-full justify-self-start">
       @if (selectedUser()) {
       <app-tasks
-        [name]="selectedUser()?.name"
+        [username]="selectedUser()?.name"
         [tasks]="selectedUser()?.tasks"
-        (taskCompleted)="onTaskCompleted($event)"
-        (addTask)="onAddTask($event)"
+        [userId]="selectedUser()?.id"
       />
       }
     </div>

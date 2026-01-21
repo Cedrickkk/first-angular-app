@@ -1,7 +1,7 @@
 import { Component, computed, input, output } from '@angular/core';
 import { ZardAvatarComponent } from '@/shared/components/avatar/avatar.component';
 import { ZardButtonComponent } from '@/shared/components/button/button.component';
-import { type iUser as TUser } from '@/shared/models/iUser';
+import { iUser } from '@/shared/models/iUser';
 
 @Component({
   selector: 'app-user',
@@ -9,12 +9,14 @@ import { type iUser as TUser } from '@/shared/models/iUser';
   templateUrl: './user.html',
 })
 export class User {
-  public user = input.required<TUser>();
+  public user = input.required<iUser>();
   public selected = input.required<boolean>();
+
   public imagePath = computed(() => '/images/' + this.user()?.image);
+
   public select = output<string>();
 
   public onSelectUser() {
-    this.select.emit(this.user()?.id);
+    this.select.emit(this.user().id);
   }
 }
